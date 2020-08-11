@@ -1,4 +1,4 @@
-package com.example.democollect.ui.view;
+package com.example.democollect.ui.customview;
 
 import android.content.Context;
 import android.graphics.Color;
