@@ -1,5 +1,7 @@
 package com.example.democollect.uitls;
 
+import android.content.Context;
+
 import com.example.democollect.base.DemoApplication;
 
 /**

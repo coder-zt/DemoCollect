@@ -39,7 +39,7 @@ public class TestMeasureGroupView extends ViewGroup {
             View child = getChildAt(i);
             int childWidth = child.getMeasuredWidth();
             int childHeight = child.getMeasuredHeight();
-            child.measure();
+//            child.measure();
         }
     }
 
