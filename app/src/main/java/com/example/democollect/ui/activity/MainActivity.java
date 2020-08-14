@@ -2,6 +2,8 @@ package com.example.democollect.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.democollect.R;
 import com.example.democollect.ui.customview.TestScoreProgressView;
+import com.example.democollect.uitls.MatrixUtil;
 
 import java.util.List;
 import java.util.Random;
@@ -32,14 +35,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void random(View view) {
-
-        Random r = new Random();
-        if(r.nextBoolean()){
-            currentNum++;
-            mTestScoreProgressView.upDateProgress((float) (currentNum * 1.0 /totalNum),
-                    Math.abs(r.nextInt()%6) + 1);
-        }else {
-            mTestScoreProgressView.setDrawScoreEnable(false);
-        }
+        Intent in = new Intent(this, AnimLearningActivity.class);
+        startActivity(in);
+//        Matrix matrix = new Matrix();
+//        MatrixUtil.printMatrix(matrix);
+//        matrix.setTranslate(100, 100);
+//        MatrixUtil.printMatrix(matrix);
     }
+
+
 }

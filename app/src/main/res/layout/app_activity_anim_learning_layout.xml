@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_alpha_animation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ff0000"
+        android:text="透明度动画"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_rotate_animation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ff0000"
+        android:text="旋转动画"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alpha_animation" />
+
+    <TextView
+        android:id="@+id/tv_translate_animation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ff0000"
+        android:gravity="center"
+        android:text="位移动画"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rotate_animation" />
+
+    <TextView
+        android:id="@+id/tv_scale_animation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ff0000"
+        android:gravity="center"
+        android:text="缩放动画"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_translate_animation" />
+
+    <TextView
+        android:id="@+id/tv_collect_animation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ff0000"
+        android:gravity="center"
+        android:text="动画集合"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_scale_animation" />
+
+    <Button
+        android:id="@+id/btn_translate_animator"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#00ff00"
+        android:text="位移-Animator"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_collect_animation"
+        app:layout_constraintTop_toBottomOf="@+id/tv_collect_animation" />
+
+
+    <Button
+        android:id="@+id/btn_custom_animator"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#00ff00"
+        android:text="自定义-Animator"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_translate_animator"
+        app:layout_constraintTop_toBottomOf="@+id/tv_collect_animation" />
+</androidx.constraintlayout.widget.ConstraintLayout>
