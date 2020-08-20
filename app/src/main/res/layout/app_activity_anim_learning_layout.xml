@@ -97,4 +97,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_translate_animator"
         app:layout_constraintTop_toBottomOf="@+id/tv_collect_animation" />
+
+    <View
+        android:id="@+id/view_container"
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        android:background="@color/colorPrimary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_reveal_anim"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/app_circle_btn_bg"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.democollect.ui.activity;
 
+import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
@@ -8,9 +9,11 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
@@ -40,6 +43,9 @@ public class AnimLearningActivity extends Activity implements View.OnClickListen
     private TextView mTvCollectAnim;
     private Button mMBtnTranslateAnimator;
     private Button mBtnCustomAnimator;
+    private Button mBtnRevealAnim;
+    private View mViewContainer;
+    private boolean flag;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -133,6 +139,7 @@ public class AnimLearningActivity extends Activity implements View.OnClickListen
 
         mMBtnTranslateAnimator.setOnClickListener(this);
         mBtnCustomAnimator.setOnClickListener(this);
+        mBtnRevealAnim.setOnClickListener(this);
     }
 
     private void initView() {
@@ -143,6 +150,8 @@ public class AnimLearningActivity extends Activity implements View.OnClickListen
         mTvCollectAnim = (TextView)findViewById(R.id.tv_collect_animation);
         mMBtnTranslateAnimator = (Button)findViewById(R.id.btn_translate_animator);
         mBtnCustomAnimator = (Button)findViewById(R.id.btn_custom_animator);
+        mBtnRevealAnim = (Button)findViewById(R.id.btn_reveal_anim);
+        mViewContainer = findViewById(R.id.view_container);
     }
 
     @Override
@@ -154,7 +163,57 @@ public class AnimLearningActivity extends Activity implements View.OnClickListen
             case R.id.btn_custom_animator:
                 customAnimator();
                 break;
+            case R.id.btn_reveal_anim:
+                revealAnim(v);
+                break;
         }
+    }
+
+    private void revealAnim(View v) {
+
+        int[] location = new int[2];
+        v.getLocationInWindow(location);
+        int containerWidth = mViewContainer.getWidth();
+        int containerHeight = mViewContainer.getHeight();
+        int radiusMax = Math.max(containerHeight, containerWidth);
+
+        if(flag){
+
+            Animator animation = ViewAnimationUtils.createCircularReveal(mViewContainer,
+                    location[0]+v.getMeasuredWidth()/2, location[1], radiusMax, 0);
+            animation.setDuration(1000);
+            animation.start();
+            flag = false;
+            animation.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mViewContainer.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+        }else{
+            mViewContainer.setVisibility(View.VISIBLE);
+            Animator animation = ViewAnimationUtils.createCircularReveal(mViewContainer,
+                    location[0]+v.getWidth()/2, location[1], 0,radiusMax);
+            animation.setDuration(1000);
+            animation.start();
+            flag = true;
+        }
+
     }
 
     private void customAnimator() {
